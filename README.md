@@ -1,3 +1,4 @@
+# THIS PROJECT IS NOT COMPLETE YET AND DOES NOT WORK
 # zoleo-openai-interface
 A python script that allows you to communicate with openAI models from your zoleo device.  
 Sometimes you are in a remote area where you do not have internet access, deploy this script to ask chatGPT a question from anywhere via email!
