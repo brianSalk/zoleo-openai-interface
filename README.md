@@ -8,11 +8,15 @@ In order to access your emails from a python script, you will need to have an Ap
 * Make sure 2-step authorization is enabled for your email address
 * Once you have 2-step authorization enabled, get your [app password](https://myaccount.google.com/apppasswords)
   
-Now that you set up your app password, you will need to set an environment variable to your app password and an environment variable for your email address.  How you go about this will depend on where you deploy your app, but the variable names *must* be **EMAIL** and **PASSWORD** spelled exactly like that.  This is because I gave them those names in my script.  You might need to assign them in a bash-script or `.bashrc` file like this
+Now that you set up your app password, you will need to create an environment variable called **PASSWORD** to store your app password  
+and an environment variable called **EMAIL** for your email address.  
+How you go about this will depend on where you deploy your app, but the variable names *must* be **EMAIL** and **PASSWORD** spelled exactly like that.  This is because I gave them those names in my script.  You might need to assign them in a bash-script or `.bashrc` file like this
 ```
 EMAIL='Your-email-address'
 PASSWORD='your-app-password'
 ```
+If you do decide to change these variable names, you will also need to update the variable name in the script.  
+
 
 Lastly, you will need to have an openAI account and you will need to pay those greedy bastards in order to use a model.  [This link](https://www.datacamp.com/tutorial/using-gpt-models-via-the-openai-api-in-python) should help with that.  
 
