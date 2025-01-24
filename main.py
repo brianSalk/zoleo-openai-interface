@@ -11,12 +11,12 @@ from email.utils import parseaddr
 
 client = OpenAI(api_key=getenv("OPENAI_KEY"))
 
-def get_ai_response(prompt: str) -> str:
+def get_ai_response(prompt: str, model_name: str) -> str:
     completion = client.chat.completions.create(
-          model="gpt-3.5-turbo",
+          model=model_name,
           messages=[
-            {"role": "system", "content": "You are a helpful assistant."},
-            {"role": "user", "content": "Hello!"}
+            {"role": "system", "content": "You are accurate and keep all answers as short as possible."},
+            {"role": "user", "content": prompt}
           ]
     )
     return completion.choices[0].message
