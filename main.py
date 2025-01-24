@@ -58,6 +58,7 @@ PASSWORD = getenv('PASSWORD')
 IMAP_SERVER = "imap.gmail.com"  # e.g., "imap.gmail.com" for Gmail
 SMTP_SERVER = "smtp.gmail.com"  # e.g., "smtp.gmail.com" for Gmail
 SMTP_PORT = 587  # For TLS
+MODEL = "openAI model to use"
 
 def read_emails():
     """Reads unread emails."""
@@ -140,8 +141,8 @@ def main():
         # Create a response if it is from a zoleo account
         if 'zoleo' in sender.lower():
             response_subject = ""
-            #response_body = get_ai_response(body)
-            response_body = f"this is a test email from chatman"
+            response_body = get_ai_response(body, MODEL)
+            #response_body = f"this is a test email from chatman"
 
         # Send the response
         send_email(sender, response_subject, response_body)
