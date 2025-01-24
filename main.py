@@ -4,17 +4,23 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import email
 from os import getenv
+from openai import OpenAI
 
 
 from email.utils import parseaddr
 
+client = OpenAI(api_key=getenv("OPENAI_KEY"))
+
 def get_ai_response(prompt: str) -> str:
-    ...
-    """
-        inside this function, send a message to gpt,
-        get response from model
-        return response as a string
-    """
+    completion = client.chat.completions.create(
+          model="gpt-3.5-turbo",
+          messages=[
+            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "user", "content": "Hello!"}
+          ]
+    )
+    return completion.choices[0].message
+
 
 def extract_sender_email(raw_email_data):
     """
